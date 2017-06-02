@@ -8,14 +8,14 @@ const bodyParser = require('body-parser')
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname, '../client')))
+app.use(express.static(path.join(__dirname, 'client')))
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
 const ads = require('./server/routes/classifieds')
-app.use('/classifieds', ads)
+app.use('/api/classifieds', ads)
 
 app.use('*', function(req, res, next) {
-  res.sendFile('index.html', { root: path.join(__dirname, './client') })
+  res.sendFile('index.html', { root: path.join(__dirname, 'client') })
 })
 const port = process.env.PORT || 3000
 

@@ -6,65 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <base href="/">
   </head>
   <body>
-    <ads></ads>
-    <main class="container">
-      <div class="">
-        <p><a class="btn btn-info" data-toggle="collapse" data-target="#myForm" >Create Ad</a></p>
-      </div>
-      <!-- <ul class="nav nav-pills">
-        <li role="presentation" class="active">
-          <input type="search" class="form-control input-sm search-form" placeholder="Filter">
-        </li>
-        <div class="form-inline">
-          <label for="sort">  Sort by </label>
-          <select class="form-control" id="sort">
-            <option>Some text</option>
-            <option>Some text</option>
-          </select>
-        </div>
-      </ul> -->
-      <div class="row collapse" id="myForm">
-        <div class="col-md-8">
-          <form novalidate name = "commentForm" ng-submit = "$ctrl.commentAdded()">
-            <div class="form-group" ng-class="{'has-error': $ctrl.commentForm.title.$invalid}">
-              <label for="title">Title</label>
-              <input id="title" class="form-control" required name = "title" ng-model="$ctrl.comment.title" minlength = "2">
-              <span ng-show="$ctrl.commentForm.title.$invalid">Please enter a title</span>
-              <span ng-show="$ctrl.commentForm.title.$error.minlength">Title needs to be at least 3 characters</span>
-            </div>
-            <div class="form-group">
-              <label for="body">Body</label>
-              <textarea id="body" class="form-control" ng-model="$ctrl.comment.body" name = "body" required></textarea>
-            </div>
-            <div class="form-group">
-              <label for="author">Author</label>
-              <input id="author" class="form-control" ng-model="$ctrl.comment.author" name="author" required>
-            </div>
-            <div class="form-group">
-              <label for="image-url">Image URL</label>
-              <input id="image-url" class="form-control" ng-model="$ctrl.comment.image" name="image" required>
-            </div>
-            <div class="form-group">
-            <button type="submit" class="btn btn-primary">
-              Submit
-            </button>
-            </div>
-          </form>
-        </div>
-      </div>
 
-    </main>`
+    <ui-view></ui-view>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+    <script src="/app.module.js"></script>
+    <script src="/app.config.js"></script>
 
+    <script src="/javascripts/ads.component.js"></script>
+    <script src="/javascripts/newAdForm.component.js"></script>
+    <script src="/javascripts/ads.service.js"></script>
+    <script src="/javascripts/newAdForm.service.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.js"></script>
-    <script src=“/angular-ui-router/release/angular-ui-router.min.js”></script>
-    <script src="./javascripts/app.js"></script>
-    <script src=".javascripts/ads.component.js"></script>
-    <script src="./javascripts/ads.service.js"></script>
-    <script src="./javascripts/newAdForm.service.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>

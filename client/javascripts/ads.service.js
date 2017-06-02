@@ -3,7 +3,7 @@
     .service('AdsService', function($http) {
       return {
         getAd: function() {
-          return $http.get('/classifieds')
+          return $http.get('/api/classifieds')
           .then(function(payload) {
             console.log(payload.data)
 

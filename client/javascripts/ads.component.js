@@ -1,24 +1,24 @@
 (function() {
-  angular.module('classifieds', [])
+  angular.module('classifieds')
     .component('ads', {
 
-      controller: 'AdsController',
-      controllerAs: 'vm',
+      controller: AdsController,
       templateUrl: "../templates/ads.html"
     })
 
-    AdsController.$inject = ['AdsService', 'NewAdFormService']
-    function AdsController(AdsService) {
-      const vm = this
-      vm.navigate = function(e) {
-        e.preventDefault()
-        $state.go('newAd')
-      }
-      vm.$onInit = function() {
-        AdsService.getAd().then(function(data) {
-          console.log(data)
-          vm.ads = data
-        })
-      }
+  AdsController.$inject = ['AdsService', 'NewAdFormService']
+  function AdsController(AdsService) {
+    const vm = this
+    vm.navigate = function(e) {
+      e.preventDefault()
+      $state.go('newAd')
     }
+    vm.$onInit = function() {
+      console.log('ads controller')
+      AdsService.getAd().then(function(data) {
+        console.log(data)
+        vm.ads = data
+      })
+    }
+  }
 })()
