@@ -29,8 +29,8 @@ router.post('/', (req, res, next) => {
   let newAdd = req.body
 
   knex('classifieds')
-  .insert(newAdd)
   .returning(['id', 'title', 'description', 'price', 'item_image'])
+  .insert(newAdd)
   .then((newEntry) => {
     res.send(newEntry[0])
   })
@@ -38,12 +38,13 @@ router.post('/', (req, res, next) => {
 
 router.patch('/:id', (req, res, next) => {
   let update = req.body
+  console.log('req.body= ', update);
   let id = req.params.id
 
   knex('classifieds')
   .where('id', id)
-  .update(update)
   .returning(['id', 'title', 'description', 'price', 'item_image'])
+  .update(update)
   .then((newInfo) => {
     res.send(newInfo[0])
   })
@@ -51,7 +52,7 @@ router.patch('/:id', (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
   let id = req.params.id
-
+console.log('reqparams= ', req.params.id);
   knex('classifieds')
   .where('id', id)
   .returning(['id', 'title', 'description', 'price', 'item_image'])
