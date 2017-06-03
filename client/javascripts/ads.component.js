@@ -13,7 +13,7 @@
       e.preventDefault()
       $state.go('newAd')
     }
-    vm.ad = []
+    vm.ad = {}
     vm.ads = []
     vm.$onInit = function() {
       AdsService.getAd().then(function(data) {
